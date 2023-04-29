@@ -8,7 +8,6 @@
   position: relative;
 }
 
-
 .contenedor {
   background-color: rgb(235, 239, 241);
   width: 600px;
@@ -30,12 +29,7 @@
   padding-left: 10px;
   border-radius: 10px;
 }
-.datos1 {
-  height: 50px !important;
-  font-size: 18px !important;
-  padding-left: 10px !important;
-  border-radius: 10px !important;
-}
+
 .diseños {
   text-align: center;
 }
@@ -44,7 +38,7 @@
   justify-content: end;
 }
 .continuar:hover {
-  background-color: rgb(214, 216, 214) !important;
+  opacity: 0.7;
   cursor: pointer !important;
 }
 .caja1 {
@@ -52,10 +46,12 @@
   justify-content: space-between;
 }
 .continuar {
-  display: flex !important;
-  justify-content: center !important;
-  align-items: center !important;
-  border: 3px solid black !important;
+  background-color: #1a73e8;
+  margin: 0 auto;
+  padding: 4px;
+  border: 4px solid black !important;
+  margin-top: 3% !important;
+  margin-bottom: 5px !important;
 }
 .bienvenidoH2 {
   text-transform: uppercase;
@@ -125,25 +121,8 @@
 .rayita {
   vertical-align: inherit;
 }
-.continuarGoogle {
-  width: 50% !important;
-  margin-right: 15px !important;
-  color: black !important;
-  background-color: transparent !important;
-}
-.continuarGoogle div {
-  background-color: transparent !important;
 
-  text-align: center !important;
-}
 
-.continuarGit {
-  width: 50%;
-}
-.continuar {
-  margin-top: 3% !important;
-  margin-bottom: 5px !important;
-}
 .imagenes {
   margin-right: 10px;
 }

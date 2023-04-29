@@ -1,7 +1,8 @@
 import React from "react";
 import Error from "./Error";
-import { gapi } from "gapi-script";
-import GoogleLogin from "react-google-login";
+import { GoogleOAuthProvider } from "@react-oauth/google";
+import GoogleAuth from "./GoogleAuth";
+
 import { useEffect } from "react";
 
 // npm i -D tailwindcss postcss autoprefixer: instalar tailwind
@@ -21,23 +22,6 @@ const Login = ({
 }) => {
   const clienteId =
     "565890216083-h7lapvn1hjrk6umehog5audrpqcuolbr.apps.googleusercontent.com";
-
-  useEffect(() => {
-    const start = () => {
-      gapi.auth2.init({
-        //clienteId,
-        client_id: clienteId,
-      });
-    };
-    gapi.load("client:auth2", start);
-  }, []);
-
-  const onSuccess = (respuesta) => {
-    console.log(respuesta);
-  };
-  const onFailure = () => {
-    console.log("respuesta");
-  };
 
   const mostrarContraseña = () => {
     const inputContra = document.querySelector(".inputPassword");
@@ -135,32 +119,10 @@ const Login = ({
           </div>
 
           <div className="caja1">
-            {/* <div className="datos continuar continuarGoogle">
-              <img
-                className="iconoLogo"
-                height="28px"
-                alt="google logo"
-                src="https://i.ibb.co/L0dFmQk/Group-1.png"
-              />
-              continuar con google
-            </div> */}
-            <GoogleLogin
-              className="datos1 continuar continuarGoogle"
-              clientId={clienteId}
-              buttonText="continuar con google"
-              onSuccess={onSuccess}
-              onFailure={onFailure}
-              isSignedIn={true}
-              cookiePolicy={"single_host_policy"}
-            />
-            <div className="datos1 continuar continuarGit">
-              <img
-                className="iconoLogo"
-                height="28px"
-                alt="github logo"
-                src="https://i.ibb.co/rFtk1gQ/Group-2.png"
-              />
-              continuar con github
+            <div className="continuar">
+              <GoogleOAuthProvider clientId={clienteId}>
+                <GoogleAuth />
+              </GoogleOAuthProvider>
             </div>
           </div>
           <h3 className="registroEnlace">
