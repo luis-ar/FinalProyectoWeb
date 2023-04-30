@@ -4,6 +4,7 @@ import { GoogleOAuthProvider } from "@react-oauth/google";
 import GoogleAuth from "./GoogleAuth";
 
 import { useEffect } from "react";
+import PanelBienvenida from "./PanelBienvenida";
 
 // npm i -D tailwindcss postcss autoprefixer: instalar tailwind
 
@@ -19,6 +20,12 @@ const Login = ({
   setRegistro,
   setRecuperar,
   setNosotros,
+  setNombreUsuario,
+  nombreUsuario,
+  setMuestraBienvenida,
+  muestraBienvenida,
+  setImagenUsuario,
+  imagenUsuario,
 }) => {
   const clienteId =
     "565890216083-h7lapvn1hjrk6umehog5audrpqcuolbr.apps.googleusercontent.com";
@@ -52,6 +59,12 @@ const Login = ({
   return (
     <>
       <div className="madre">
+        {muestraBienvenida && (
+          <PanelBienvenida
+            nombreUsuario={nombreUsuario}
+            imagenUsuario={imagenUsuario}
+          />
+        )}
         <form className="contenedor" onSubmit={handleVerificar}>
           <div className="diseños">
             <svg
@@ -121,7 +134,13 @@ const Login = ({
           <div className="caja1">
             <div className="continuar">
               <GoogleOAuthProvider clientId={clienteId}>
-                <GoogleAuth />
+                <GoogleAuth
+                  setNombreUsuario={setNombreUsuario}
+                  setMuestraBienvenida={setMuestraBienvenida}
+                  setRegistro={setRegistro}
+                  setNosotros={setNosotros}
+                  setImagenUsuario={setImagenUsuario}
+                />
               </GoogleOAuthProvider>
             </div>
           </div>
@@ -150,8 +169,6 @@ const Login = ({
             <span className="nombreNosotros">Nosotros</span>
           </i>
         </div>
-
-        {/* //////// */}
       </div>
     </>
   );

@@ -4,6 +4,7 @@ import App from "./App";
 import "./index.css";
 import "./Estilos/style.css";
 import "./Estilos/styleAnimacion.css";
+import "./Estilos/styleBienvenida.css";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>

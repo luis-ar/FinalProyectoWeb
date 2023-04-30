@@ -3,6 +3,7 @@ import Login from "./componens/Login";
 import Registro from "./componens/Registro";
 import Separador from "./componens/Separador";
 import Conoce from "./Informacion/Conoce";
+import PanelBienvenida from "./componens/PanelBienvenida";
 
 function App() {
   const [correo, setCorreo] = useState("");
@@ -11,6 +12,9 @@ function App() {
   const [registro, setRegistro] = useState(false);
   const [recuperar, setRecuperar] = useState(true);
   const [nosotros, setNosotros] = useState(false);
+  const [nombreUsuario, setNombreUsuario] = useState("");
+  const [muestraBienvenida, setMuestraBienvenida] = useState(false);
+  const [imagenUsuario, setImagenUsuario] = useState(null);
 
   return (
     <>
@@ -25,6 +29,12 @@ function App() {
           setRegistro={setRegistro}
           setRecuperar={setRecuperar}
           setNosotros={setNosotros}
+          setNombreUsuario={setNombreUsuario}
+          nombreUsuario={nombreUsuario}
+          setMuestraBienvenida={setMuestraBienvenida}
+          muestraBienvenida={muestraBienvenida}
+          setImagenUsuario={setImagenUsuario}
+          imagenUsuario={imagenUsuario}
         />
       ) : !nosotros ? (
         <Separador
@@ -38,6 +48,8 @@ function App() {
           setRecuperar={setRecuperar}
           recuperar={recuperar}
         />
+      ) : muestraBienvenida ? (
+        <PanelBienvenida />
       ) : (
         <Conoce setNosotros={setNosotros} setRegistro={setRegistro} />
       )}

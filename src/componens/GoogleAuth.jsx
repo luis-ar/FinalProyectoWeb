@@ -2,12 +2,22 @@ import React from "react";
 
 import { GoogleLogin } from "@react-oauth/google";
 import decodeJwt from "../utils.jsx/decodeJwt";
-const GoogleAuth = () => {
-  const onSuccess = (credentialResponse) => {
+const GoogleAuth = ({
+  setMuestraBienvenida,
+  setNombreUsuario,
+  setImagenUsuario,
+}) => {
+  const onSuccess = async (credentialResponse) => {
     if (credentialResponse.credential) {
-      const { payload } = decodeJwt(credentialResponse.credential);
-      console.log(payload);
+      const { payload } = await decodeJwt(credentialResponse.credential);
+      const imagen = await payload.picture;
+      setImagenUsuario(imagen);
+      setNombreUsuario(payload.name);
+      setMuestraBienvenida(true);
     }
+    setTimeout(() => {
+      setMuestraBienvenida(false);
+    }, 2000);
   };
 
   const onFailure = (error) => {
@@ -15,15 +25,18 @@ const GoogleAuth = () => {
   };
 
   return (
-    <GoogleLogin
-      logo_alignment="center"
-      size="large"
-      theme="filled_blue"
-      text="continuar con google"
-      type="standard"
-      onSuccess={onSuccess}
-      onFailure={onFailure}
-    />
+    <>
+      <GoogleLogin
+        style={{ background: "red" }}
+        logo_alignment="center"
+        size="large"
+        theme="filled_blue"
+        text="continuar con google"
+        type="standard"
+        onSuccess={onSuccess}
+        onFailure={onFailure}
+      />
+    </>
   );
 };
 
