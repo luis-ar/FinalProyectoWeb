@@ -14,10 +14,10 @@ const GoogleAuth = ({
       setImagenUsuario(imagen);
       setNombreUsuario(payload.name);
       setMuestraBienvenida(true);
+      setTimeout(() => {
+        setMuestraBienvenida(false);
+      }, 2000);
     }
-    setTimeout(() => {
-      setMuestraBienvenida(false);
-    }, 2000);
   };
 
   const onFailure = (error) => {
