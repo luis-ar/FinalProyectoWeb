@@ -48,8 +48,6 @@ function App() {
           setRecuperar={setRecuperar}
           recuperar={recuperar}
         />
-      ) : muestraBienvenida ? (
-        <PanelBienvenida />
       ) : (
         <Conoce setNosotros={setNosotros} setRegistro={setRegistro} />
       )}
