@@ -1,11 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import Error from "./Error";
 import { GoogleOAuthProvider } from "@react-oauth/google";
 import GoogleAuth from "./GoogleAuth";
+import datos from "../data/datos.json";
 
 import { useEffect } from "react";
 import PanelBienvenida from "./PanelBienvenida";
-
 // npm i -D tailwindcss postcss autoprefixer: instalar tailwind
 
 // npm install --save styled-components
@@ -41,20 +41,43 @@ const Login = ({
 
   const handleVerificar = async (e) => {
     e.preventDefault();
+    let pase = true;
     let regex = new RegExp(
       "([!#-'*+/-9=?A-Z^-~-]+(.[!#-'*+/-9=?A-Z^-~-]+)*|\"([]!#-[^-~ \t]|(\\[\t -~]))+\")@([!#-'*+/-9=?A-Z^-~-]+(.[!#-'*+/-9=?A-Z^-~-]+)*|[[\t -Z^-~]*])"
     );
 
     if ([contraseña, correo].includes("") && !regex.test(correo)) {
       setMensaje(["Todos los campos son obligatorios", "El Email es inválido"]);
+      pase = false;
     } else if (!regex.test(correo)) {
       setMensaje(["El Email es inválido"]);
+      pase = false;
     } else if ([contraseña, correo].includes("")) {
       setMensaje(["Todos los campos son obligatorios"]);
+      pase = false;
+    }
+
+    if (pase) {
+      datos.map(async (item) => {
+        if (item.correo == correo && item.password == contraseña) {
+          setNombreUsuario(item.nombre);
+          setImagenUsuario(item.imagen);
+          setMuestraBienvenida(true);
+          setMensaje([]);
+          setContraseña("");
+          setCorreo("");
+          setTimeout(() => {
+            setMuestraBienvenida(false);
+          }, 2000);
+          return;
+        } else {
+          setMensaje(["El usuario no existe o contraseña incorrecta"]);
+        }
+      });
     }
     setTimeout(() => {
       setMensaje([]);
-    }, 3000);
+    }, 1500);
   };
   return (
     <>
@@ -89,6 +112,7 @@ const Login = ({
               type="text"
               className="datos inputCorreo "
               placeholder="Ingrese su dirección de correo electrónico"
+              value={correo}
               onChange={(e) => {
                 setCorreo(e.target.value);
               }}
@@ -105,6 +129,7 @@ const Login = ({
               type="password"
               className="datos inputPassword"
               placeholder="Ingrese su contraseña"
+              value={contraseña}
               onChange={(e) => {
                 setContraseña(e.target.value);
               }}
