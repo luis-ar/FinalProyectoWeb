@@ -56,10 +56,12 @@ const Login = ({
       setMensaje(["Todos los campos son obligatorios"]);
       pase = false;
     }
-
     if (pase) {
-      datos.map(async (item) => {
-        if (item.correo == correo && item.password == contraseña) {
+      const resultado = datos.filter(
+        (dato) => dato.correo == correo && dato.password == contraseña
+      );
+      if (resultado.length > 0) {
+        resultado.map((item) => {
           setNombreUsuario(item.nombre);
           setImagenUsuario(item.imagen);
           setMuestraBienvenida(true);
@@ -69,11 +71,10 @@ const Login = ({
           setTimeout(() => {
             setMuestraBienvenida(false);
           }, 2000);
-          return;
-        } else {
-          setMensaje(["El usuario no existe o contraseña incorrecta"]);
-        }
-      });
+        });
+      } else {
+        setMensaje(["El usuario no existe o contraseña incorrecta"]);
+      }
     }
     setTimeout(() => {
       setMensaje([]);
