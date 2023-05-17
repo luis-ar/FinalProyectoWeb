@@ -62,9 +62,10 @@ const Login = ({
         (dato) => dato.correo == correo && dato.password == contraseña
       );
       if (resultado.length > 0) {
-        resultado.map((item) => {
+        resultado.map(async (item) => {
+          const imgUser=await item.imagen;
           setNombreUsuario(item.nombre);
-          setImagenUsuario(item.imagen);
+          setImagenUsuario(imgUser);
           setMuestraBienvenida(true);
           setMensaje([]);
           setContraseña("");
