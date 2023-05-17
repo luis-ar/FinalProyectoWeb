@@ -26,6 +26,7 @@ const Login = ({
   muestraBienvenida,
   setImagenUsuario,
   imagenUsuario,
+  setMuestraPrograma,
 }) => {
   const clienteId =
     "565890216083-h7lapvn1hjrk6umehog5audrpqcuolbr.apps.googleusercontent.com";
@@ -70,6 +71,7 @@ const Login = ({
           setCorreo("");
           setTimeout(() => {
             setMuestraBienvenida(false);
+            setMuestraPrograma(true);
           }, 2000);
         });
       } else {
@@ -163,6 +165,7 @@ const Login = ({
                 <GoogleAuth
                   setNombreUsuario={setNombreUsuario}
                   setMuestraBienvenida={setMuestraBienvenida}
+                  setMuestraPrograma={setMuestraPrograma}
                   setRegistro={setRegistro}
                   setNosotros={setNosotros}
                   setImagenUsuario={setImagenUsuario}

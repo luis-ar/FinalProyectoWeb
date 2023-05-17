@@ -6,6 +6,7 @@ const GoogleAuth = ({
   setMuestraBienvenida,
   setNombreUsuario,
   setImagenUsuario,
+  setMuestraPrograma,
 }) => {
   const onSuccess = async (credentialResponse) => {
     if (credentialResponse.credential) {
@@ -16,6 +17,7 @@ const GoogleAuth = ({
       setMuestraBienvenida(true);
       setTimeout(() => {
         setMuestraBienvenida(false);
+        setMuestraPrograma(true);
       }, 2000);
     }
   };

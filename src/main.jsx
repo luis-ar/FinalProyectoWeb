@@ -5,6 +5,7 @@ import "./index.css";
 import "./Estilos/style.css";
 import "./Estilos/styleAnimacion.css";
 import "./Estilos/styleBienvenida.css";
+import "./Estilos/styleBarra.css";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
