@@ -1,8 +1,5 @@
 import React from "react";
 import Error from "./Error";
-import NuevoUsuario from "../utils.jsx/NuevoUsuario";
-import datos from "../data/datos.json";
-import axios from "axios";
 
 const Registro = ({
   setCorreo,
@@ -26,24 +23,16 @@ const Registro = ({
 
   const handleVerificar = async (e) => {
     e.preventDefault();
-    let pase = true;
     let regex = new RegExp(
       "([!#-'*+/-9=?A-Z^-~-]+(.[!#-'*+/-9=?A-Z^-~-]+)*|\"([]!#-[^-~ \t]|(\\[\t -~]))+\")@([!#-'*+/-9=?A-Z^-~-]+(.[!#-'*+/-9=?A-Z^-~-]+)*|[[\t -Z^-~]*])"
     );
 
     if ([contraseña, correo].includes("") && !regex.test(correo)) {
       setMensaje(["Todos los campos son obligatorios", "El Email es inválido"]);
-      pase = false;
     } else if (!regex.test(correo)) {
       setMensaje(["El Email es inválido"]);
-      pase = false;
     } else if ([contraseña, correo].includes("")) {
       setMensaje(["Todos los campos son obligatorios"]);
-      pase = false;
-    }
-
-    if (pase) {
-      
     }
 
     setTimeout(() => {
