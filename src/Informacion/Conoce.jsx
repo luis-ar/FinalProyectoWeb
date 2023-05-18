@@ -84,9 +84,7 @@ const Conoce = ({ setRegistro, setNosotros }) => {
             Lorem ipsum dolor sit, amet consectetur adipisicing.
           </p>
           <Animacion />
-
         </div>
-
       </header>
 
       <main>
@@ -178,17 +176,55 @@ const Conoce = ({ setRegistro, setNosotros }) => {
         <div className="contenedor1" id="expertos">
           <h2 className="subtitulo">Expertos en:</h2>
           <section className="experts">
-            <div className="cont-expert">
-              <img src={ImagenPieChart} alt="" />
-              <h3 className="n-expert">Analytics</h3>
+            <div className="card">
+              <div className="face front">
+                <img src={ImagenPieChart} />
+                <h3 className="n-expert">Analisis</h3>
+              </div>
+
+              <div className="face back">
+                <h3>Analisis</h3>
+                <p>
+                  es un país entre los Estados Unidos y América Central,
+                  conocido por las playas en el Pacífico y el golfo de México, y
+                  su diverso paisaje de montañas, desiertos y selvas.
+                </p>
+                <div className="link"></div>
+              </div>
             </div>
-            <div className="cont-expert">
-              <img src={ImagenSearchEngine} alt="" />
-              <h3 className="n-expert">Analytics</h3>
+
+            <div className="card">
+              <div className="face front">
+                <img src={ImagenSearchEngine} />
+                <h3 className="n-expert">Gestión</h3>
+              </div>
+
+              <div className="face back">
+                <h3>Gestión</h3>
+                <p>
+                  es un país entre los Estados Unidos y América Central,
+                  conocido por las playas en el Pacífico y el golfo de México, y
+                  su diverso paisaje de montañas, desiertos y selvas.
+                </p>
+                <div className="link"></div>
+              </div>
             </div>
-            <div className="cont-expert">
-              <img src={ImagenSecurity} alt="" />
-              <h3 className="n-expert">Analytics</h3>
+
+            <div className="card">
+              <div className="face front">
+                <img src={ImagenSecurity} />
+                <h3 className="n-expert">Administración</h3>
+              </div>
+
+              <div className="face back">
+                <h3>Administración</h3>
+                <p>
+                  es un país entre los Estados Unidos y América Central,
+                  conocido por las playas en el Pacífico y el golfo de México, y
+                  su diverso paisaje de montañas, desiertos y selvas.
+                </p>
+                <div className="link"></div>
+              </div>
             </div>
           </section>
         </div>

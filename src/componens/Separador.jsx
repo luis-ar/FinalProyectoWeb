@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import Registro from "./Registro";
 import RecuperarCuenta from "./RecuperarCuenta";
 
-
 const Separador = ({
   setRecuperar,
   recuperar,
@@ -13,6 +12,8 @@ const Separador = ({
   setMensaje,
   mensaje,
   setRegistro,
+  setNombreUsuario,
+  nombreUsuario,
 }) => {
   return (
     <>
@@ -25,6 +26,8 @@ const Separador = ({
           setContraseña={setContraseña}
           mensaje={mensaje}
           setMensaje={setMensaje}
+          setNombreUsuario={setNombreUsuario}
+          nombreUsuario={nombreUsuario}
         />
       ) : (
         <RecuperarCuenta

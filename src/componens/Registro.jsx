@@ -1,5 +1,8 @@
 import React from "react";
 import Error from "./Error";
+import NuevoUsuario from "../utils.jsx/NuevoUsuario";
+import datos from "../data/datos.json";
+import axios from "axios";
 
 const Registro = ({
   setCorreo,
@@ -9,6 +12,8 @@ const Registro = ({
   setMensaje,
   mensaje,
   setRegistro,
+  setNombreUsuario,
+  nombreUsuario,
 }) => {
   const mostrarContraseña = () => {
     const inputContra = document.querySelector(".inputPassword");
@@ -21,17 +26,26 @@ const Registro = ({
 
   const handleVerificar = async (e) => {
     e.preventDefault();
+    let pase = true;
     let regex = new RegExp(
       "([!#-'*+/-9=?A-Z^-~-]+(.[!#-'*+/-9=?A-Z^-~-]+)*|\"([]!#-[^-~ \t]|(\\[\t -~]))+\")@([!#-'*+/-9=?A-Z^-~-]+(.[!#-'*+/-9=?A-Z^-~-]+)*|[[\t -Z^-~]*])"
     );
 
     if ([contraseña, correo].includes("") && !regex.test(correo)) {
       setMensaje(["Todos los campos son obligatorios", "El Email es inválido"]);
+      pase = false;
     } else if (!regex.test(correo)) {
       setMensaje(["El Email es inválido"]);
+      pase = false;
     } else if ([contraseña, correo].includes("")) {
       setMensaje(["Todos los campos son obligatorios"]);
+      pase = false;
     }
+
+    if (pase) {
+      
+    }
+
     setTimeout(() => {
       setMensaje([]);
     }, 3000);
@@ -74,8 +88,9 @@ const Registro = ({
               type="text"
               className="datos inputCorreo"
               placeholder="Ingrese su nombre completo"
+              value={nombreUsuario}
               onChange={(e) => {
-                setCorreo(e.target.value);
+                setNombreUsuario(e.target.value);
               }}
             />
           </div>
@@ -87,6 +102,7 @@ const Registro = ({
               type="text"
               className="datos inputCorreo "
               placeholder="Ingrese su dirección de correo electrónico"
+              value={correo}
               onChange={(e) => {
                 setCorreo(e.target.value);
               }}
@@ -103,6 +119,7 @@ const Registro = ({
               type="password"
               className="datos inputPassword"
               placeholder="Ingrese su contraseña"
+              value={contraseña}
               onChange={(e) => {
                 setContraseña(e.target.value);
               }}

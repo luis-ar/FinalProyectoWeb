@@ -52,43 +52,12 @@ function App() {
           setMensaje={setMensaje}
           setRecuperar={setRecuperar}
           recuperar={recuperar}
+          setNombreUsuario={setNombreUsuario}
+          nombreUsuario={nombreUsuario}
         />
       ) : (
         <Conoce setNosotros={setNosotros} setRegistro={setRegistro} />
       )}
-      {/* {!registro ? (
-        <Login
-          correo={correo}
-          setCorreo={setCorreo}
-          contraseña={contraseña}
-          setContraseña={setContraseña}
-          mensaje={mensaje}
-          setMensaje={setMensaje}
-          setRegistro={setRegistro}
-          setRecuperar={setRecuperar}
-          setNosotros={setNosotros}
-          setNombreUsuario={setNombreUsuario}
-          nombreUsuario={nombreUsuario}
-          setMuestraBienvenida={setMuestraBienvenida}
-          muestraBienvenida={muestraBienvenida}
-          setImagenUsuario={setImagenUsuario}
-          imagenUsuario={imagenUsuario}
-        />
-      ) : !nosotros ? (
-        <Separador
-          setRegistro={setRegistro}
-          correo={correo}
-          setCorreo={setCorreo}
-          contraseña={contraseña}
-          setContraseña={setContraseña}
-          mensaje={mensaje}
-          setMensaje={setMensaje}
-          setRecuperar={setRecuperar}
-          recuperar={recuperar}
-        />
-      ) : (
-        <Conoce setNosotros={setNosotros} setRegistro={setRegistro} />
-      )} */}
     </>
   );
 }
