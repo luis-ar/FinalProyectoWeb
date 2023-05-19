@@ -27,6 +27,7 @@ const Login = ({
   setImagenUsuario,
   imagenUsuario,
   setMuestraPrograma,
+  setCopiaCorreo,
 }) => {
   const clienteId =
     "565890216083-h7lapvn1hjrk6umehog5audrpqcuolbr.apps.googleusercontent.com";
@@ -63,10 +64,11 @@ const Login = ({
       );
       if (resultado.length > 0) {
         resultado.map(async (item) => {
-          const imgUser=await item.imagen;
+          const imgUser = await item.imagen;
           setNombreUsuario(item.nombre);
           setImagenUsuario(imgUser);
           setMuestraBienvenida(true);
+          setCopiaCorreo(correo);
           setMensaje([]);
           setContraseña("");
           setCorreo("");
@@ -170,6 +172,7 @@ const Login = ({
                   setRegistro={setRegistro}
                   setNosotros={setNosotros}
                   setImagenUsuario={setImagenUsuario}
+                  setCopiaCorreo={setCopiaCorreo}
                 />
               </GoogleOAuthProvider>
             </div>
