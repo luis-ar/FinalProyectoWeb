@@ -120,6 +120,7 @@
 .correo {
   font-size: 20px;
   margin-right: 10px;
+  overflow: hidden;
 }
 /* boton salir*/
 .btnBotonSalir:hover {
