@@ -9,6 +9,9 @@ const BarraPresentacion = ({
   setCopiaCorreo,
   setImagenUsuario,
   setNombreUsuario,
+  setPresupuesto,
+  setGastos,
+  setisValidPresupuesto,
 }) => {
   let mostrarPanel = true;
   const AparecerPanel = () => {
@@ -28,6 +31,9 @@ const BarraPresentacion = ({
     setCopiaCorreo("");
     setImagenUsuario("");
     setNombreUsuario("");
+    setPresupuesto(0);
+    setGastos([]);
+    setisValidPresupuesto(false);
   };
   return (
     <>
@@ -47,7 +53,9 @@ const BarraPresentacion = ({
       <div className="salirUsuario">
         <div className="barraSuperior">
           <span className="datosBarra">Expense Manager</span>
-          <h3 className="datosBarra btnBotonSalir" onClick={RegresarLogin}>Cerrar Sesión</h3>
+          <h3 className="datosBarra btnBotonSalir" onClick={RegresarLogin}>
+            Cerrar Sesión
+          </h3>
         </div>
         <div className="datosGenerales">
           <div className="contenedorImagenDatos">

@@ -94,7 +94,7 @@ const Login = ({
             imagenUsuario={imagenUsuario}
           />
         )}
-        <form className="contenedor" onSubmit={handleVerificar}>
+        <form className="contenedor1234" onSubmit={handleVerificar}>
           <div className="diseños">
             <svg
               viewBox="0 0 86.02 86.02"

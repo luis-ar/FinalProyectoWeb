@@ -40,7 +40,7 @@ const RecuperarCuenta = ({
   return (
     <>
       <div className="madre">
-        <form className="contenedor" onSubmit={handleVerificar}>
+        <form className="contenedor1234" onSubmit={handleVerificar}>
           <div
             className="contenedorCerrar"
             onClick={(e) => {
