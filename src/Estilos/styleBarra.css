@@ -148,13 +148,13 @@
     margin-right: 0.5rem;
   }
   .salirUsuario {
-    max-width: 17rem;
+    max-width: 30rem;
     min-width: 10rem;
-    height: 8rem;
+    height: 12rem;
   }
 
   .datosBarra {
-    font-size: 12px;
+    font-size: 10px;
   }
 
   .datosGeneralesImagen {
