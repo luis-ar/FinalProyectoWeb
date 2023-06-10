@@ -81,7 +81,9 @@ const Conoce = ({ setRegistro, setNosotros }) => {
         <div className="contenedor1 head">
           <h1 className="titulo">Convertimos tus sueños en realidad</h1>
           <p className="copy">
-            Lorem ipsum dolor sit, amet consectetur adipisicing.
+            "El dinero no es el objetivo final, sino una herramienta para lograr
+            tus metas. Administra sabiamente tus gastos y convierte tus metas
+            en realidad"
           </p>
           <Animacion />
         </div>
@@ -95,32 +97,33 @@ const Conoce = ({ setRegistro, setNosotros }) => {
             <div className="checklist-servicio">
               <div className="service">
                 <h3 className="n-service">
-                  <span className="number">1</span>Diseño web
+                  <span className="number">1</span>Educación Financiera
                 </h3>
                 <p>
-                  Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                  Nobis ad itaque dolorum obcaecati et aperiam eum ea soluta
-                  libero vitae!
+                  Los administradores de gastos pueden proporcionarte educación
+                  financiera y enseñarte técnicas y estrategias para administrar
+                  tus finanzas de manera más efectiva.
                 </p>
               </div>
               <div className="service">
                 <h3 className="n-service">
-                  <span className="number">2</span>Diseño web
+                  <span className="number">2</span>Asesoramiento Financiero
                 </h3>
                 <p>
-                  Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                  Nobis ad itaque dolorum obcaecati et aperiam eum ea soluta
-                  libero vitae!
+                  Ayudamos a identificar áreas en las que puedes reducir gastos,
+                  ofrecerte estrategias para ahorrar dinero y brindarte
+                  recomendaciones sobre cómo mejorar tu situación financiera.
                 </p>
               </div>
               <div className="service">
                 <h3 className="n-service">
-                  <span className="number">3</span>Diseño web
+                  <span className="number">3</span>Seguimiento a tus Ingresos y
+                  Gastos
                 </h3>
                 <p>
-                  Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                  Nobis ad itaque dolorum obcaecati et aperiam eum ea soluta
-                  libero vitae!
+                  Para tener una visión clara de tu situación financiera, es
+                  fundamental hacer un seguimiento de todos tus ingresos y
+                  gastos.
                 </p>
               </div>
             </div>
@@ -187,7 +190,7 @@ const Conoce = ({ setRegistro, setNosotros }) => {
                 <p>
                   Se pueden identificar ineficiencias o gastos innecesarios,
                   esto puede llevar a la implementación de medidas de reducción
-                  de costos
+                  de costos.
                 </p>
                 <div className="link"></div>
               </div>
@@ -204,7 +207,7 @@ const Conoce = ({ setRegistro, setNosotros }) => {
                 <p>
                   Permite tener un mayor control sobre los recursos financieros
                   de la empresa, al establecer políticas claras, procesos de
-                  aprobación y límites de gastos,
+                  aprobación y límites de gastos.
                 </p>
                 <div className="link"></div>
               </div>
@@ -221,7 +224,7 @@ const Conoce = ({ setRegistro, setNosotros }) => {
                 <p>
                   Involucra la creación de presupuestos detallados que asignan
                   los recursos financieros de manera adecuada, esto permite
-                  establecer límites y metas de gastos,
+                  establecer límites y metas de gastos.
                 </p>
                 <div className="link"></div>
               </div>
@@ -232,10 +235,17 @@ const Conoce = ({ setRegistro, setNosotros }) => {
       <footer id="contacto">
         <div className="contenedor1 footer-content">
           <div className="contact-us">
-            <h2 className="brand">Luis Design</h2>
+            <h2 className="brand">Expense Manager</h2>
             <p>Somos expertos en la creación de tus sueños</p>
           </div>
           <div className="social-media">
+            <a
+              target="_blank"
+              href="https://goo.gl/maps/PXo8dJAT9NnDjSzP6"
+              className="social-media-icon"
+            >
+              <i className="bx bx-map"></i>
+            </a>
             <a
               target="_blank"
               href="https://www.facebook.com/profile.php?id=100091853778009"

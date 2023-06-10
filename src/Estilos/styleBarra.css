@@ -4,12 +4,13 @@
   box-sizing: border-box;
 }
 .contenedorBarra {
-  background-color: #163e7d;
+  background-color: #4174c6;
   margin: 0;
   height: 7rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  border-bottom: 4px solid black;
 }
 .infoBarra {
   margin-right: 2rem;

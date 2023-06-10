@@ -84,8 +84,9 @@ header {
   text-decoration: none;
 }
 .titulo {
-  font-size: 60px;
+  font-size: 45px;
   margin-bottom: 15px;
+  text-transform: uppercase;
 }
 .copy {
   font-weight: 300;
