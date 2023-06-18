@@ -2,8 +2,7 @@ import { useState, useEffect } from "react";
 import Login from "./componens/Login";
 import Separador from "./componens/Separador";
 import Conoce from "./Informacion/Conoce";
-import BarraPresentacion from "./componens/BarraPresentacion";
-
+//npm i firebase
 //Extras
 import { nanoid } from "nanoid";
 import Separador2 from "./componens/Separador2";
@@ -133,6 +132,7 @@ function App() {
           guardarGasto={guardarGasto}
           gastoEditar={gastoEditar}
           modal={modal}
+          setRegistro={setRegistro}
         />
       ) : !registro ? (
         <Login
@@ -167,6 +167,12 @@ function App() {
           recuperar={recuperar}
           setNombreUsuario={setNombreUsuario}
           nombreUsuario={nombreUsuario}
+          setMuestraBienvenida={setMuestraBienvenida}
+          setMuestraPrograma={setMuestraPrograma}
+          muestraBienvenida={muestraBienvenida}
+          setImagenUsuario={setImagenUsuario}
+          imagenUsuario={imagenUsuario}
+          setCopiaCorreo={setCopiaCorreo}
         />
       ) : (
         <Conoce setNosotros={setNosotros} setRegistro={setRegistro} />

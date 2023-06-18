@@ -1,5 +1,6 @@
 import React from "react";
 import Imagen from "../Imagenes/logo.jpeg";
+import firebase from "../firebase";
 
 const BarraPresentacion = ({
   imagenUsuario,
@@ -12,6 +13,7 @@ const BarraPresentacion = ({
   setPresupuesto,
   setGastos,
   setisValidPresupuesto,
+  setRegistro,
 }) => {
   let mostrarPanel = true;
   const AparecerPanel = () => {
@@ -27,6 +29,7 @@ const BarraPresentacion = ({
   };
 
   const RegresarLogin = () => {
+    firebase.cerrarSesion();
     setMuestraPrograma(false);
     setCopiaCorreo("");
     setImagenUsuario("");
@@ -34,6 +37,7 @@ const BarraPresentacion = ({
     setPresupuesto(0);
     setGastos([]);
     setisValidPresupuesto(false);
+    setRegistro(false);
   };
   return (
     <>

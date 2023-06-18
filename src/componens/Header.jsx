@@ -17,6 +17,7 @@ const Header = ({
   isValidPresupuesto,
   setisValidPresupuesto,
   gastos,
+  setRegistro,
 }) => {
   return (
     <div className="header-global divHeader">
@@ -31,6 +32,7 @@ const Header = ({
         setPresupuesto={setPresupuesto}
         setGastos={setGastos}
         setisValidPresupuesto={setisValidPresupuesto}
+        setRegistro={setRegistro}
       />
       <h1 className="titulo-header">Planificador de Gastos</h1>
 

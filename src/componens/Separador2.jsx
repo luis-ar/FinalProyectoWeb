@@ -29,6 +29,7 @@ const Separador2 = ({
   guardarGasto,
   gastoEditar,
   modal,
+  setRegistro,
 }) => {
   const handleNuevoGasto = () => {
     setModal(true);
@@ -53,6 +54,7 @@ const Separador2 = ({
         setPresupuesto={setPresupuesto}
         isValidPresupuesto={isValidPresupuesto}
         setisValidPresupuesto={setisValidPresupuesto}
+        setRegistro={setRegistro}
       />
       {isValidPresupuesto && (
         <>

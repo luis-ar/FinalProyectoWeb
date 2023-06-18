@@ -1,10 +1,10 @@
-import React, { useState } from "react";
+import React, { useContext } from "react";
 import Error from "./Error";
 import { GoogleOAuthProvider } from "@react-oauth/google";
 import GoogleAuth from "./GoogleAuth";
 import datos from "../data/datos.json";
-
-import { useEffect } from "react";
+import { FirebaseContext } from "../firebase";
+import firebase from "../firebase";
 import PanelBienvenida from "./PanelBienvenida";
 // npm i -D tailwindcss postcss autoprefixer: instalar tailwind
 
@@ -59,25 +59,37 @@ const Login = ({
       pase = false;
     }
     if (pase) {
-      const resultado = datos.filter(
-        (dato) => dato.correo == correo && dato.password == contraseña
-      );
-      if (resultado.length > 0) {
-        resultado.map(async (item) => {
-          const imgUser = await item.imagen;
-          setNombreUsuario(item.nombre);
-          setImagenUsuario(imgUser);
-          setMuestraBienvenida(true);
-          setCopiaCorreo(correo);
-          setMensaje([]);
-          setContraseña("");
-          setCorreo("");
-          setTimeout(() => {
-            setMuestraBienvenida(false);
-            setMuestraPrograma(true);
-          }, 2000);
-        });
-      } else {
+      // const resultado = datos.filter(
+      //   (dato) => dato.correo == correo && dato.password == contraseña
+      // );
+      // if (resultado.length > 0) {
+      //   resultado.map(async (item) => {
+      //
+      //   });
+      // } else {
+      //   setMensaje(["El usuario no existe o contraseña incorrecta"]);
+      // }
+
+      try {
+        const usuario = await firebase.login(correo, contraseña);
+
+        console.log(usuario.user.displayName);
+        console.log(usuario.user.email);
+        setNombreUsuario(usuario.user.displayName);
+        setImagenUsuario(
+          "https://assets.stickpng.com/images/585e4beacb11b227491c3399.png"
+        );
+        setMuestraBienvenida(true);
+        setCopiaCorreo(correo);
+        setMensaje([]);
+        setContraseña("");
+        setCorreo("");
+        setTimeout(() => {
+          setMuestraBienvenida(false);
+          setMuestraPrograma(true);
+        }, 2000);
+      } catch (error) {
+        console.error(error);
         setMensaje(["El usuario no existe o contraseña incorrecta"]);
       }
     }

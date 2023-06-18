@@ -1,5 +1,7 @@
 import React from "react";
 import Error from "./Error";
+import firebase from "../firebase";
+import PanelBienvenida from "./PanelBienvenida";
 
 const Registro = ({
   setCorreo,
@@ -11,6 +13,12 @@ const Registro = ({
   setRegistro,
   setNombreUsuario,
   nombreUsuario,
+  setMuestraBienvenida,
+  muestraBienvenida,
+  setImagenUsuario,
+  imagenUsuario,
+  setMuestraPrograma,
+  setCopiaCorreo,
 }) => {
   const mostrarContraseña = () => {
     const inputContra = document.querySelector(".inputPassword");
@@ -23,25 +31,56 @@ const Registro = ({
 
   const handleVerificar = async (e) => {
     e.preventDefault();
+    let pase = true;
     let regex = new RegExp(
       "([!#-'*+/-9=?A-Z^-~-]+(.[!#-'*+/-9=?A-Z^-~-]+)*|\"([]!#-[^-~ \t]|(\\[\t -~]))+\")@([!#-'*+/-9=?A-Z^-~-]+(.[!#-'*+/-9=?A-Z^-~-]+)*|[[\t -Z^-~]*])"
     );
 
     if ([contraseña, correo].includes("") && !regex.test(correo)) {
       setMensaje(["Todos los campos son obligatorios", "El Email es inválido"]);
+      pase = false;
     } else if (!regex.test(correo)) {
       setMensaje(["El Email es inválido"]);
+      pase = false;
     } else if ([contraseña, correo].includes("")) {
       setMensaje(["Todos los campos son obligatorios"]);
+      pase = false;
+    }
+    if (pase) {
+      try {
+        await firebase.registrar(nombreUsuario, correo, contraseña);
+        setNombreUsuario(nombreUsuario);
+        setImagenUsuario(
+          "https://assets.stickpng.com/images/585e4beacb11b227491c3399.png"
+        );
+        setMuestraBienvenida(true);
+        setCopiaCorreo(correo);
+        setMensaje([]);
+        setContraseña("");
+        setCorreo("");
+        setTimeout(() => {
+          setMuestraBienvenida(false);
+          setMuestraPrograma(true);
+        }, 2000);
+      } catch (error) {
+        console.error("hubo error al crear", error);
+        setMensaje(["El Email esta siendo usado por otra cuenta"]);
+      }
     }
 
     setTimeout(() => {
       setMensaje([]);
-    }, 3000);
+    }, 1500);
   };
   return (
     <>
       <div className="madre">
+        {muestraBienvenida && (
+          <PanelBienvenida
+            nombreUsuario={nombreUsuario}
+            imagenUsuario={imagenUsuario}
+          />
+        )}
         <form className="contenedor1234" onSubmit={handleVerificar}>
           <div
             className="contenedorCerrar"

@@ -14,20 +14,33 @@ const Separador = ({
   setRegistro,
   setNombreUsuario,
   nombreUsuario,
+  setMuestraBienvenida,
+  muestraBienvenida,
+  setImagenUsuario,
+  imagenUsuario,
+  setMuestraPrograma,
+  setCopiaCorreo,
 }) => {
   return (
     <>
       {recuperar ? (
         <Registro
-          setRegistro={setRegistro}
           correo={correo}
           setCorreo={setCorreo}
           contraseña={contraseña}
           setContraseña={setContraseña}
           mensaje={mensaje}
           setMensaje={setMensaje}
+          setRegistro={setRegistro}
+          setRecuperar={setRecuperar}
           setNombreUsuario={setNombreUsuario}
           nombreUsuario={nombreUsuario}
+          setMuestraBienvenida={setMuestraBienvenida}
+          muestraBienvenida={muestraBienvenida}
+          setImagenUsuario={setImagenUsuario}
+          imagenUsuario={imagenUsuario}
+          setMuestraPrograma={setMuestraPrograma}
+          setCopiaCorreo={setCopiaCorreo}
         />
       ) : (
         <RecuperarCuenta
