@@ -79,7 +79,7 @@ const Conoce = ({ setRegistro, setNosotros }) => {
           <a href="#contacto">Contacto</a>
         </nav>
         <div className="contenedor1 head">
-          <h1 className="titulo">Convertimos tus sueños en realidad</h1>
+          <h1 className="titulo">Convertimos tus sueños en realidad ContigoVoy</h1>
           <p className="copy">
             "El dinero no es el objetivo final, sino una herramienta para lograr
             tus metas. Administra sabiamente tus gastos y convierte tus metas
